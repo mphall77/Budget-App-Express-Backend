@@ -8,10 +8,23 @@ app.use(express.json());
 app.use(cors());
 
 // MIDDLEWARE
+app.use(express.json());
+app.use(cors());
+app.use((req, res, next) => {
+	console.log(`testing 101`);
+	next();
+});
+
+// ROUTES
+app.use("/transactions", transactions);
 
 // ROOT
 app.get("/", (req, res) => {
 	res.send("Budget App");
+});
+
+app.get("/transactions", (req, res) => {
+	res.json(transactionsArray);
 });
 
 // 404 PAGE
