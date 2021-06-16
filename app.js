@@ -4,6 +4,7 @@ const cors = require("cors");
 
 // CONFIGURATION
 const app = express();
+const transactionsController = require("./controllers/transactionsController");
 app.use(express.json());
 app.use(cors());
 
@@ -16,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-app.use("/transactions", transactions);
+app.use("/transactions", transactionsController);
 
 // ROOT
 app.get("/", (req, res) => {
