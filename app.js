@@ -21,7 +21,7 @@ app.use("/transactions", transactionsController);
 
 // ROOT
 app.get("/", (req, res) => {
-	res.send("Budget App");
+	res.send("Budget App 📖");
 });
 
 app.get("/transactions", (req, res) => {
