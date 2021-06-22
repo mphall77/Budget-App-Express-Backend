@@ -5,15 +5,10 @@ const cors = require("cors");
 // CONFIGURATION
 const app = express();
 const transactionsController = require("./controllers/transactionsController");
-app.use(express.json());
-app.use(cors());
 
 // MIDDLEWARE
 app.use(express.json());
 app.use(cors());
-app.use((req, res, next) => {
-	next();
-});
 
 // ROUTES
 app.use("/transactions", transactionsController);
@@ -21,10 +16,6 @@ app.use("/transactions", transactionsController);
 // ROOT
 app.get("/", (req, res) => {
 	res.send("Budget App 📖");
-});
-
-app.get("/transactions", (req, res) => {
-	res.json(transactionsArray);
 });
 
 // 404 PAGE
